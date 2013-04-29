@@ -1,4 +1,4 @@
-class Month
+class Year
 
     attr_accessor :year
 
