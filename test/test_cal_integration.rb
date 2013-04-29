@@ -3,9 +3,9 @@ require 'cal'
 
 class CalendarProjectTest < Test::Unit::TestCase
 
-    # def test_01
-    #    assert_equal `cal 2 2013`, `ruby cal.rb 2 2013`
-    # end
+    def test_01
+       assert_equal `cal 2 2013`, `ruby cal.rb 2 2013`
+    end
  
     def test_02a_leap_year_if_400
        yr1 = Year.new(2000)
