@@ -1,4 +1,4 @@
-require 'year'
+require 'month'
 
 
   def cal_header
@@ -6,4 +6,6 @@ require 'year'
     year = ARGV[1]
     puts `cal #{month} #{year}`
   end 
+
+
 
