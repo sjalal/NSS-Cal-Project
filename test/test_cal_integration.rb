@@ -3,19 +3,19 @@ require 'cal'
 
 class CalendarProjectTest < Test::Unit::TestCase
 
-    # def test_01a_full_calendar_output
-    #    assert_equal (`cal 2 2013`, `ruby cal.rb 2 2013`)
-    # end
+    def test_01a_full_calendar_output
+        assert_equal (`cal 2 2013`, `ruby cal.rb 2 2013`)
+     end
 
-    # def test_01b_full_calendar_output_when_leap_year
-    #    assert_equal (`cal 2 2000`, `ruby cal.rb 2 2000`)
-    # end
+     def test_01b_full_calendar_output_when_leap_year
+        assert_equal (`cal 2 2000`, `ruby cal.rb 2 2000`)
+     end
 
-    # def test_01c_full_calendar_output_if_random
-    #    assert_equal (`cal 2 2000`, `ruby cal.rb 2 2000`)
-    #    assert_equal (`cal 2 2011`, `ruby cal.rb 2 2011`)
-    #    assert_equal (`cal 2 3000`, `ruby cal.rb 2 3000`)
-    # end
+     def test_01c_full_calendar_output_if_random
+        assert_equal (`cal 2 2000`, `ruby cal.rb 2 2000`)
+        assert_equal (`cal 2 2011`, `ruby cal.rb 2 2011`)
+        assert_equal (`cal 2 3000`, `ruby cal.rb 2 3000`)
+     end
 
     def test_02_month_name
       cal1 = Month.new(3,2012)
