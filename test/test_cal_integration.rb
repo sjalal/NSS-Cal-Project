@@ -3,7 +3,7 @@ require 'cal'
 
 class CalendarProjectTest < Test::Unit::TestCase
 
-    def test_01a_full_calendar_output
+     def test_01a_full_calendar_output
         assert_equal (`cal 2 2013`, `ruby cal.rb 2 2013`)
      end
 
@@ -71,34 +71,63 @@ class CalendarProjectTest < Test::Unit::TestCase
        assert_equal(false, cal1.leap_year?)
        assert_equal(false, cal2.leap_year?)
        assert_equal(true, cal3.leap_year?)
-    end
+    end 
 
-    def test_05a_start_day_non_leap_year
+    def test_05a_zeller_non_leap_year
         cal1 = Month.new(5,2013)
         cal2 = Month.new(2,2014)
         cal3 = Month.new(3,2030)
-        assert_equal(4,cal1.start_day)
-        assert_equal(7,cal2.start_day)
-        assert_equal(6,cal3.start_day)
+        assert_equal(4,cal1.zeller_algorithm)
+        assert_equal(7,cal2.zeller_algorithm)
+        assert_equal(6,cal3.zeller_algorithm)
     end
 
-    def test_05b_start_day_leap_year
+    def test_05b_zeller_leap_year
         cal1 = Month.new(9,2012)
         cal2 = Month.new(4,2016)
-        assert_equal(7,cal1.start_day)
-        assert_equal(6,cal2.start_day)
+        assert_equal(7,cal1.zeller_algorithm)
+        assert_equal(6,cal2.zeller_algorithm)
     end
 
     def test_06_print_month_name_and_year
         cal1 = Month.new(9,2012)
         cal2 = Month.new(4,2016)
-        assert_equal("   September 2012",cal1.month_year_header)
-        
+        assert_equal("September 2012",cal1.month_year_header)
+        assert_equal("April 2016",cal2.month_year_header)
     end
 
     def test_07_print_days_of_the_week
         cal = Month.new(4,2013)
         assert_equal("Su Mo Tu We Th Fr Sa",cal.day_header)
     end   
+
+#  def test_08_month_layout
+#     layout = <<EOS
+#    September 2012
+# Su Mo Tu We Th Fr Sa
+#                    1
+#  2  3  4  5  6  7  8
+#  9 10 11 12 13 14 15
+# 16 17 18 19 20 21 22
+# 23 24 25 26 27 28 29
+# 30 
+# EOS
+#     cal = Month.new
+#     assert_equal(layout, cal.print_month(9,2012))
+#   end
+
+    def test_08_month_layout
+        cal = Month.new(9,2012)
+        layout = []
+        layout << "   September 2012   "
+        layout << "Su Mo Tu We Th Fr Sa"
+        layout << "                   1"
+        layout << " 2  3  4  5  6  7  8"
+        layout << " 9 10 11 12 13 14 15"
+        layout << "16 17 18 19 20 21 22"
+        layout << "23 24 25 26 27 28 29"
+        layout << "30"
+        assert_equal(layout,cal.print_month)
+    end
 
 end
