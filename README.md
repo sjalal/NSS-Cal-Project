@@ -27,10 +27,7 @@ None
 + **month.rb** - the Month class
 + **year.rb** - the Year class
 
-##Bugs
-No known bugs.
-
-==List of Methods:
+##List of Methods:
 
 1. month_name
 2. num_of_days
@@ -40,3 +37,6 @@ No known bugs.
 6. day_header
 7. format_month
 8. print_month
+
+##Bugs
+No known bugs.
